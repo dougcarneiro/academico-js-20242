@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../default.css">
   <title>Title</title>
 </head>
 <body>
   <h1>IFPB</h1>
-
-  <input id="nome" placeholder="Nome">
-  <button onclick="inserirNome()">Inserir</button>
+  <div id="input-form">
+    <div id="input-fields">
+      <div class="input-field">
+        <input id="nome" placeholder="Nome" maxlength="30">
+      </div>
+      <div class="input-field">
+        <input id="idade" placeholder="Idade" maxlength="3">
+      </div>
+      <div class="input-field">
+        <input id="cpf" placeholder="CPF" maxlength="11">
+      </div>
+    </div>
+    <div id="button-div">
+      <button id="insert-button" onclick="inserirPessoa()">Inserir</button>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
