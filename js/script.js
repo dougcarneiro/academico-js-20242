@@ -126,12 +126,18 @@ function editEventListener(element, field="name") {
                 input.remove();
             })
             input.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === 'Escape') {
+                if (event.key === 'Enter') {
                     if (input.value !== "") {
                         element.textContent = input.value;
                     } else {
                         element.textContent = oldContent;
                     }
+                    input.remove();
+                }
+            })
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    element.textContent = oldContent;
                     input.remove();
                 }
             })
