@@ -118,20 +118,12 @@ function editEventListener(element, field="name") {
             element.textContent = "";
             element.appendChild(input);
             input.addEventListener('blur', (event) => {
-                if (input.value !== "") {
-                    element.textContent = input.value;
-                } else {
-                    element.textContent = oldContent;
-                }
+                element.textContent = (input.value !== "") ? input.value : oldContent
                 input.remove();
             })
             input.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
-                    if (input.value !== "") {
-                        element.textContent = input.value;
-                    } else {
-                        element.textContent = oldContent;
-                    }
+                    element.textContent = (input.value !== "") ? input.value : oldContent
                     input.remove();
                 }
             })
