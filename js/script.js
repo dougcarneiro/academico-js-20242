@@ -112,15 +112,24 @@ function editEventListener(element, field="name") {
                 insertOnlyNumber(input);
             }
             input.value = element.textContent;
+            const oldContent = element.textContent;
             element.textContent = "";
             element.appendChild(input);
             input.addEventListener('blur', (event) => {
-                element.textContent = input.value;
+                if (input.value !== "") {
+                    element.textContent = input.value;
+                } else {
+                    element.textContent = oldContent;
+                }
                 input.remove();
             })
             input.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.key === 'Escape') {
-                    element.textContent = input.value;
+                    if (input.value !== "") {
+                        element.textContent = input.value;
+                    } else {
+                        element.textContent = oldContent;
+                    }
                     input.remove();
                 }
             })
