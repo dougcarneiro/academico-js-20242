@@ -110,6 +110,8 @@ function editEventListener(element, field="name") {
             input.maxLength = field === "name" ? 30 : (field === "cpf" ? 11 : 3);
             if (field !== "name") {
                 insertOnlyNumber(input);
+            } else {
+                trimOnBlur(input);
             }
             input.value = element.textContent;
             const oldContent = element.textContent;
@@ -145,6 +147,13 @@ function insertOnlyNumber(element) {
     })
 }
 
+function trimOnBlur(element) {
+    element.addEventListener('blur', (event) => {
+        element.value = element.value.trim();
+    })
+}
+
 
 insertOnlyNumber(document.querySelector("#idade"));
 insertOnlyNumber(document.querySelector("#cpf"));
+trimOnBlur(document.querySelector("#nome"));
